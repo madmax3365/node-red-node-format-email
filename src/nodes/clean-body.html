@@ -1,0 +1,25 @@
+<script type="text/javascript">
+	RED.nodes.registerType('mail-clean-body', {
+		category: 'function',
+		color: '#f0c59a',
+		defaults: {
+			name: { value: '', required: false },
+		},
+		inputs: 1,
+		outputs: 1,
+		icon: 'envelope.png',
+		label: function() {
+			return this.name || 'Clean body';
+		},
+	});
+</script>
+<script type="text/x-red" data-template-name="mail-clean-body">
+	<div class="form-row">
+	    <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+	    <input type="text" id="node-input-name" placeholder="Name">
+	</div>
+</script>
+<script type="text/x-red" data-help-name="mail-clean-body">
+	<p>Cleans mail message body in <code>msg.payload</code> and returns msg object without touching other properties </p>
+	<p>Formatted message will be in <code>msg.formatted</code></p>
+</script>

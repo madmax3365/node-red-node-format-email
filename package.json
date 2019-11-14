@@ -1,0 +1,54 @@
+{
+	"name": "node-red-node-format-email",
+	"author": {
+		"name": "Gago Muradyan"
+	},
+	"version": "1.0.0",
+	"scripts": {
+		"build": "npm run copyHtml && tsc ",
+		"copyHtml": "mkdir -p dist/nodes/ && cp -a src/nodes/*.html dist/nodes/",
+		"copyIcons": "mkdir -p dist/icons/ && cp -a src/icons/. dist/icons",
+		"pretest": "tsc",
+		"prepublishOnly": "npm run build"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged && npm run lint"
+		}
+	},
+	"lint-staged": {
+		"{src,e2e,cypress}/**/*.{ts,json,md,scss}": [
+			"prettier --write",
+			"git add"
+		]
+	},
+	"bugs": {},
+	"bundleDependencies": [],
+	"deprecated": false,
+	"description": "Nodes for formatting received emails",
+	"keywords": [
+		"node-red"
+	],
+	"license": "GPL-2.0",
+	"main": "dist/index.js",
+	"node-red": {
+		"nodes": {
+			"clean-body": "dist/nodes/clean-body.js"
+		}
+	},
+	"repository": {
+		"type": "git"
+	},
+	"dependencies": {
+		"email-body-cleaner": "0.0.4"
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.7",
+		"@types/node-red": "^0.20.0",
+		"husky": "^3.0.9",
+		"lint-staged": "^9.4.3",
+		"prettier": "^1.19.1",
+		"tslint": "^5.20.1",
+		"typescript": "^3.7.2"
+	}
+}
