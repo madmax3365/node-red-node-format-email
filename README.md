@@ -1,6 +1,6 @@
 # node-red-node-format-email
 Node for formatting received emails. Generally this node is port for [email-body-cleaner](https://github.com/madmax3365/email-body-cleaner)<br >
-Adds node in `functions category`
+Adds node in `functions` category
 
 # Installation
 
