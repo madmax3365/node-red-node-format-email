@@ -4,12 +4,19 @@
 		"name": "Gago Muradyan"
 	},
 	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/madmax3365/node-red-node-format-email.git"
+	},
 	"scripts": {
 		"build": "npm run copyHtml && tsc ",
 		"copyHtml": "mkdir -p dist/nodes/ && cp -a src/nodes/*.html dist/nodes/",
-		"copyIcons": "mkdir -p dist/icons/ && cp -a src/icons/. dist/icons",
+		"lint": "tslint --project ./",
 		"pretest": "tsc",
-		"prepublishOnly": "npm run build"
+		"prepublishOnly": "npm run build",
+		"preversion": "npm run lint",
+		"version": "git add -A src",
+		"postversion": "git push && git push --tags"
 	},
 	"husky": {
 		"hooks": {
@@ -35,9 +42,6 @@
 		"nodes": {
 			"clean-body": "dist/nodes/clean-body.js"
 		}
-	},
-	"repository": {
-		"type": "git"
 	},
 	"dependencies": {
 		"email-body-cleaner": "0.0.4"
